@@ -12,7 +12,7 @@ const Welcome = () => {
 
         {/* Brand Name Top-Left */}
         <div className="absolute top-4 left-6 z-40 flex items-center space-x-2">
-          <img src={logo} alt="Well-AI" className="w-22 h-22" />
+          <img src={logo} alt="Well-AI" className="w-20 h-20" />
           <h2 className="text-4xl font-bold text-gray-800 mb-4 drop-shadow-md">Well-AI</h2><br/>
           <h4 className="text-xl font-bold text-gray-800 mb-4 drop-shadow-md">Wellness, Powered by Intelligence</h4>
         </div>
