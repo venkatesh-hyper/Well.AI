@@ -7,6 +7,7 @@
     "firebase": "^11.6.0",
     "framer-motion": "^12.6.3",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.487.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-parallax-tilt": "^1.7.289",
