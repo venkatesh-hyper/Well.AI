@@ -1,54 +1,33 @@
-import React from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { LayoutDashboard, Brain, Stethoscope, Settings } from "lucide-react";
-import { motion } from "framer-motion";
-import UserHealthVisualization from "../components/UserHealthVisualization";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import logo from "../assets/logo.png";
+import Lottie from "lottie-react";
+import healthBotAnimation from "../assets/healthbot.json";
+import { FaHeartbeat, FaBrain, FaStethoscope, FaCog } from "react-icons/fa";
 
 const Dashboard = () => {
-  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-yellow-100 to-pink-100">
-      {/* Sidebar */}
-      <div className="w-20 bg-white shadow-xl flex flex-col items-center py-6 space-y-6">
-        <Link to="/dashboard/userhealthdata">
-          <LayoutDashboard
-            className={`w-8 h-8 ${location.pathname.includes("userhealthdata") ? "text-pink-500" : "text-gray-400"}`}
-          />
-        </Link>
-        <Link to="/dashboard/mentalhealth">
-          <Brain
-            className={`w-8 h-8 ${location.pathname.includes("mentalhealth") ? "text-pink-500" : "text-gray-400"}`}
-          />
-        </Link>
-        <Link to="/dashboard/symptombased">
-          <Stethoscope
-            className={`w-8 h-8 ${location.pathname.includes("symptombased") ? "text-pink-500" : "text-gray-400"}`}
-          />
-        </Link>
-        <Link to="/dashboard/settings">
-          <Settings
-            className={`w-8 h-8 ${location.pathname.includes("settings") ? "text-pink-500" : "text-gray-400"}`}
-          />
-        </Link>
+    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-yellow-100 to-pink-100">
+      {/* Top Brand */}
+      <div className="flex items-center p-4">
+        <img src={logo} alt="Well-AI" className="w-12 h-12 mr-3" />
+        <h1 className="text-2xl font-bold text-green-800">Well-AI</h1>
       </div>
 
-      {/* Main Panel */}
-      <div className="flex-1 p-8 overflow-y-auto">
-        <motion.h1
-          className="text-4xl font-bold text-gray-800 mb-8"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Welcome to Your Dashboard
-        </motion.h1>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-10">
+        <Lottie animationData={healthBotAnimation} loop className="w-96 h-96 opacity-80 mb-6" />
+        <h2 className="text-xl font-semibold text-green-700">Welcome to the Health Dashboard</h2>
+      </div>
 
-        {/* Health Data Visualization Component */}
-        <UserHealthVisualization />
-
-        {/* Render nested child pages like UserHealthData, MentalHealth, etc. */}
-        <Outlet />
+      {/* Bottom Navigation */}
+      <div className="sticky bottom-0 z-50 bg-white/80 backdrop-blur-md shadow-inner flex justify-around py-4 border-t border-gray-200">
+        <button onClick={() => navigate("/dashboard")} className="btn-3d text-green-700"><FaHeartbeat size={24} /></button>
+        <button onClick={() => navigate("/mental-health")} className="btn-3d text-pink-700"><FaBrain size={24} /></button>
+        <button onClick={() => navigate("/symptom-based")} className="btn-3d text-yellow-700"><FaStethoscope size={24} /></button>
+        <button onClick={() => alert('Settings coming soon!')} className="btn-3d text-gray-700"><FaCog size={24} /></button>
       </div>
     </div>
   );

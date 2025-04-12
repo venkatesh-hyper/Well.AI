@@ -6,7 +6,10 @@ import Welcome from "./pages/Welcome";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 import Loading from "./pages/Loading";
-
+import Dashboard from './pages/Dashboard';
+import MentalHealth from "./pages/MentalHealth";
+import SymptomBased from "./pages/SymptomsBased";
+import Settings from "./pages/Settings";
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -25,9 +28,13 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Welcome />} />
+      <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+          <Route path="Dashboard" element={<Dashboard />} />
+            <Route path="mentalhealth" element={<MentalHealth />} />
+            <Route path="symptomsbased" element={<SymptomBased />} />
+            <Route path="settings" element={<Settings />} />
         {/* Add more routes here */}
       </Routes>
     </Router>
@@ -35,4 +42,6 @@ const App = () => {
 };
 
 export default App;
+
+
 

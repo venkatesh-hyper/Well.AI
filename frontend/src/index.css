@@ -10,3 +10,6 @@
 .animate-gradientBackground {
   animation: gradientBackground 15s ease infinite;
 }
+.btn-3d {
+  @apply p-3 bg-white rounded-full shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 active:translate-y-1;
+}

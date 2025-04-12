@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.png";
 import healthBotAnimation from "../assets/healthbot.json";
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/src/pages/Dashboard.jsx');
+      navigate('/dashboard');
     } catch (err) {
       alert(err.message);
     }
@@ -25,7 +26,7 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/src/pages/Dashboard.jsx");
+      navigate("/dashboard");
     } catch (err) {
       alert("Google login failed: " + err.message);
     }
