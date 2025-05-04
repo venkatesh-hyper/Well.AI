@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradientBackground {
+  animation: gradientBackground 15s ease infinite;
+}
+.btn-3d {
+  @apply p-3 bg-white rounded-full shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1 active:translate-y-1;
+}
+
+
+/* Enable dark mode for the app */
+html {
+  /* You can also use media queries here, like `@media (prefers-color-scheme: dark)` */
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Dark Mode */
+body.dark {
+  background-color: #1a202c; /* Example dark background */
+  color: white;
+}
